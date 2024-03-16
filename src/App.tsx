@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Cell from "./components/Cell.tsx";
+import Cell from "./components/Cell/Cell.tsx";
 
 function App() {
   return (
