@@ -2,9 +2,7 @@ import { ChangeEvent, ComponentType, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { CellValueState } from "../../store/CellValueState";
 
-export type CellProps = {
-  children: ComponentType | string;
-};
+export type CellProps = {};
 
 export default function Cell(props: CellProps) {
   const [cellValue, setCellValue] = useRecoilState<string>(CellValueState);
@@ -42,7 +40,7 @@ export default function Cell(props: CellProps) {
   ) : (
     <div onClick={ChangeLabeltoInput} data-cell-id={"2"}>
       {cellValue}
-    </div>
+    </div> //if we return props.childeren it will give everything between Cell component refer word doc
   );
 }
 
