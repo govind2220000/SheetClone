@@ -4,6 +4,9 @@ import { CellValueState } from "../../store/CellValueState";
 
 export type CellProps = {};
 
+export const CELL_WIDTH = 100;
+export const CELL_HEIGHT = 25;
+
 export default function Cell(props: CellProps) {
   const [cellValue, setCellValue] = useRecoilState<string>(CellValueState);
   const [isEditMode, setIsEditMode] = useState(false);
