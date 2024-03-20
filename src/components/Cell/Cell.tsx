@@ -2,13 +2,17 @@ import { ChangeEvent, ComponentType, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { CellValueState } from "../../store/CellValueState";
 
-export type CellProps = {};
+export type CellProps = {
+  cellId: string;
+};
 
 export const CELL_WIDTH = 100;
 export const CELL_HEIGHT = 25;
 
 export default function Cell(props: CellProps) {
-  const [cellValue, setCellValue] = useRecoilState<string>(CellValueState);
+  const [cellValue, setCellValue] = useRecoilState<string>(
+    CellValueState(props.cellId)
+  );
   const [isEditMode, setIsEditMode] = useState(false);
   const inputRef = useRef(null);
   const ChangeLabeltoInput = () => {
@@ -20,7 +24,7 @@ export default function Cell(props: CellProps) {
   };
 
   const onClickOutsideInputHandler = (event: MouseEvent) => {
-    if ((event.target as HTMLElement)?.dataset?.cellId !== "2") {
+    if ((event.target as HTMLElement)?.dataset?.cellId !== props.cellId) {
       console.log("Hello Clicking");
       ChangeInputtoLabel();
     }
@@ -36,12 +40,12 @@ export default function Cell(props: CellProps) {
   return isEditMode ? (
     <input
       ref={inputRef}
-      data-cell-id={"2"}
+      data-cell-id={props.cellId}
       value={cellValue}
       onChange={updateCellValueState}
     ></input>
   ) : (
-    <div onClick={ChangeLabeltoInput} data-cell-id={"2"}>
+    <div onClick={ChangeLabeltoInput} data-cell-id={props.cellId}>
       {cellValue}
     </div> //if we return props.childeren it will give everything between Cell component refer word doc
   );

@@ -19,7 +19,7 @@ export const Sheet = (props: SheetProps) => {
           <Row key={rowIndex}>
             {[...Array(numberOfColumns)].map((column, columnIndex) => (
               <Column key={columnIndex}>
-                <Cell></Cell>
+                <Cell cellId={`${rowIndex},${columnIndex}`}></Cell>
               </Column>
             ))}
           </Row>
