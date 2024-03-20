@@ -13,7 +13,7 @@ export const Sheet = (props: SheetProps) => {
   const numberOfColumns = sheetSize.width / CELL_WIDTH;
   const numberOfRows = sheetSize.height / CELL_HEIGHT;
   return (
-    <table>
+    <table className="border-spacing-0">
       <tbody>
         {[...Array(numberOfRows)].map((row, rowIndex) => (
           <Row key={rowIndex}>

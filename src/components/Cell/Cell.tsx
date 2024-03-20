@@ -39,13 +39,18 @@ export default function Cell(props: CellProps) {
   });
   return isEditMode ? (
     <input
+      className="w-full h-full text-xs p-0 m-0 border-0"
       ref={inputRef}
       data-cell-id={props.cellId}
       value={cellValue}
       onChange={updateCellValueState}
     ></input>
   ) : (
-    <div onClick={ChangeLabeltoInput} data-cell-id={props.cellId}>
+    <div
+      className="overflow-hidden w-full h-full text-clip whitespace-nowrap leading-6 p-0.5"
+      onClick={ChangeLabeltoInput}
+      data-cell-id={props.cellId}
+    >
       {cellValue}
     </div> //if we return props.childeren it will give everything between Cell component refer word doc
   );
