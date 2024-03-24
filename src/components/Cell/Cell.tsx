@@ -1,6 +1,6 @@
 import { ChangeEvent, ComponentType, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { CellValueState } from "../../store/CellValueState";
+import { getCellValueState } from "../../store/CellValueState";
 
 export type CellProps = {
   cellId: string;
@@ -11,7 +11,7 @@ export const CELL_HEIGHT = 25;
 
 export default function Cell(props: CellProps) {
   const [cellValue, setCellValue] = useRecoilState<string>(
-    CellValueState(props.cellId)
+    getCellValueState(props.cellId)
   );
   const [isEditMode, setIsEditMode] = useState(false);
   const inputRef = useRef(null);
