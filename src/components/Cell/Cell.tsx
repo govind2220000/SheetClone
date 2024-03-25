@@ -1,7 +1,7 @@
 import { ChangeEvent, ComponentType, useEffect, useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { getCellValueState } from "../../store/CellValueState";
-
+import { EvaluatedCellValueState } from "../../store/EvaluatedCellValueState";
 export type CellProps = {
   cellId: string;
 };
@@ -13,6 +13,11 @@ export default function Cell(props: CellProps) {
   const [cellValue, setCellValue] = useRecoilState<string>(
     getCellValueState(props.cellId)
   );
+
+  const evaluatedCellValueState = useRecoilValue<string>(
+    EvaluatedCellValueState(props.cellId)
+  );
+
   const [isEditMode, setIsEditMode] = useState(false);
   const inputRef = useRef(null);
   const ChangeLabeltoInput = () => {
@@ -51,7 +56,7 @@ export default function Cell(props: CellProps) {
       onClick={ChangeLabeltoInput}
       data-cell-id={props.cellId}
     >
-      {cellValue}
+      {evaluatedCellValueState}
     </div> //if we return props.childeren it will give everything between Cell component refer word doc
   );
 }

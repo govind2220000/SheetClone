@@ -9,7 +9,7 @@ import { memoize } from "../utils/memoize";
 //     })
 //   );
 
-const cellValueStates = new Map();
+export const cellValueStates = new Map();
 
 export const getCellValueState = (cellId: string) => {
   if (!cellValueStates.has(cellId)) {
