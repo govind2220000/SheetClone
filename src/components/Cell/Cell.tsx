@@ -35,6 +35,12 @@ export default function Cell(props: CellProps) {
     }
   };
 
+  const onDefocusInputHandler = (event: KeyboardEvent) => {
+    if (event.key === "Enter") {
+      setIsEditMode(false);
+    }
+  };
+
   const updateCellValueState = (e: ChangeEvent<HTMLInputElement>) => {
     setCellValue(e.target.value);
   };
@@ -49,6 +55,7 @@ export default function Cell(props: CellProps) {
       data-cell-id={props.cellId}
       value={cellValue}
       onChange={updateCellValueState}
+      onKeyDown={onDefocusInputHandler}
     ></input>
   ) : (
     <div
