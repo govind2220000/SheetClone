@@ -19,9 +19,12 @@ export default function Cell(props: CellProps) {
   );
 
   const [isEditMode, setIsEditMode] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const ChangeLabeltoInput = () => {
     setIsEditMode(true);
+    setTimeout(() => {
+      inputRef.current?.focus();
+    });
   };
 
   const ChangeInputtoLabel = () => {
@@ -35,7 +38,9 @@ export default function Cell(props: CellProps) {
     }
   };
 
-  const onDefocusInputHandler = (event: KeyboardEvent) => {
+  const onDefocusInputHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.key === "Enter") {
       setIsEditMode(false);
     }
