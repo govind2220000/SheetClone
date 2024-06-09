@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentType, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { getCellValueState } from "../../store/CellValueState";
 import { EvaluatedCellValueState } from "../../store/EvaluatedCellValueState";

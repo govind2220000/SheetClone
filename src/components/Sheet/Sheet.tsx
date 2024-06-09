@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+// @ts-ignore
 import { Row } from "../Row/Row";
 import { Column } from "../Column/Column";
 import Cell, { CELL_HEIGHT, CELL_WIDTH } from "../Cell/Cell";
@@ -8,9 +8,7 @@ import { SheetSizeState } from "../../store/SheetSizeState";
 import { AxisCell } from "../AxisCell/AxisCell";
 import { numberToChar } from "../../utils/numberToChar";
 
-export type SheetProps = {};
-
-export const Sheet = (props: SheetProps) => {
+export const Sheet = () => {
   const sheetSize = useRecoilValue(SheetSizeState);
 
   const numberOfColumns = Math.ceil(sheetSize.width / CELL_WIDTH);

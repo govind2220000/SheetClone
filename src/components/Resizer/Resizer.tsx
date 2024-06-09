@@ -1,9 +1,8 @@
+// @ts-ignore
 import { useRecoilState } from "recoil";
 import { SheetSizeState } from "../../store/SheetSizeState";
 
-export type ResizerProps = {};
-
-export const Resizer = (props: ResizerProps) => {
+export const Resizer = () => {
   const [sheetSize, setSheetSize] = useRecoilState(SheetSizeState);
   const initDrag = () => {
     document.addEventListener("mousemove", doDrag);

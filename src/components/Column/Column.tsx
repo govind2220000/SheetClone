@@ -1,5 +1,3 @@
-import { ComponentType } from "react";
-
 export type ColumnProps = { children?: React.ReactNode };
 
 export const Column = (props: ColumnProps) => {

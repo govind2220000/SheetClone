@@ -1,4 +1,3 @@
-import Cell from "./components/Cell/Cell.tsx";
 import { SheetContainer } from "./components/Containers/SheetContainer.tsx";
 
 function App() {
